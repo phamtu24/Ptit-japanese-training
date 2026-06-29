@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { programData } from "@/data/programData";
 
+const basePath =
+  process.env.NODE_ENV === "production" ? "/Ptit-japanese-training" : "";
+
 const navItems = [
   ["Tổng quan", "#overview"],
   ["Chương trình", "#program"],
@@ -87,7 +90,11 @@ export default function Home() {
     <main>
       <header className="site-header">
         <div className="brand">
-          <img src="/logo.png" alt="rikkei logo" className="logo" />
+          <img
+            src={`${basePath}/images/logo.png`}
+            alt="rikkei logo"
+            className="logo"
+          />
         </div>
         <nav>
           {navItems.map(([label, href]) => (
